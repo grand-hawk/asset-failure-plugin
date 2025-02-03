@@ -1,0 +1,35 @@
+{
+  "name": "asset-failure-plugin",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "rbxtsc",
+    "build:rbxm": "rojo build -o plugin.rbxm",
+    "build:plugin": "rojo build -p asset-failure-plugin.rbxm",
+    "watch": "npm run build -- -w",
+    "format": "prettier -w .",
+    "lint": "eslint ."
+  },
+  "author": "ari-party <git@astrid.email>",
+  "devDependencies": {
+    "@rbxts/compiler-types": "3.0.0-types.0",
+    "@robertsspaceindustries/rbxts-types": "^1.0.82",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-roblox-ts": "^0.0.36",
+    "prettier": "^3.4.2",
+    "prettier-eslint": "^16.3.0",
+    "roblox-ts": "3.0.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@rbxts/iris": "2.3.1-ts.1",
+    "@rbxts/object-utils": "^1.0.4",
+    "@rbxts/services": "^1.5.5"
+  }
+}
