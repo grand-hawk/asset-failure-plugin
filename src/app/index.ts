@@ -41,8 +41,8 @@ export default function App() {
     if (stopButton.clicked()) cancel();
   }
 
-  const clearButton = Iris.Button(['Clear list']);
-  if (clearButton.clicked()) {
+  const resetButton = Iris.Button(['Reset']);
+  if (resetButton.clicked()) {
     outputInstancesState.set([]);
     outputIterationCount.set(0);
   }
