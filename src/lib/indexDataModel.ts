@@ -3,7 +3,7 @@ import { ContentProvider } from '@rbxts/services';
 import type Iris from '@rbxts/iris';
 
 export function toContentId(assetId: string | number) {
-  if (typeIs(assetId, 'string') && string.match(assetId, '^rbxassetid://'))
+  if (typeIs(assetId, 'string') && string.match(assetId, '^rbxassetid://')[0])
     return assetId;
   return `rbxassetid://${assetId}`;
 }
