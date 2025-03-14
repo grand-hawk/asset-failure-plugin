@@ -13,7 +13,7 @@
     "target": "ESNext",
     "typeRoots": [
       "node_modules/@rbxts",
-      "node_modules/@robertsspaceindustries",
+      "node_modules/@robertsspaceindustries"
     ],
     "types": ["rbxts-types/plugin"],
     "rootDir": "src",
