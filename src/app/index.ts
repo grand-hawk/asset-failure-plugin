@@ -53,7 +53,7 @@ export default function App() {
   Iris.SeparatorText(['Output']);
 
   for (const instance of outputInstancesState.get()) {
-    if (!instance) continue;
+    if (!instance || !instance.Parent) continue;
 
     const fullNameSegments = instance.GetFullName().split('.');
     fullNameSegments.shift();
