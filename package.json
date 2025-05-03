@@ -1,6 +1,6 @@
 {
   "name": "asset-failure-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "build": "rbxtsc",
     "build:rbxm": "rojo build -o plugin.rbxm",
