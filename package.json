@@ -1,11 +1,11 @@
 {
   "name": "asset-failure-plugin",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "scripts": {
     "build": "rbxtsc",
     "build:rbxm": "rojo build -o plugin.rbxm",
     "build:plugin": "rojo build -p asset-failure-plugin.rbxm",
-    "watch": "npm run build -- -w",
+    "watch": "pnpm run build -- -w",
     "format": "prettier -w .",
     "lint": "eslint ."
   },

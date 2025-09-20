@@ -5,14 +5,11 @@ export default function Window() {
     position: Vector2.zero,
   });
 
-  function updateSize() {
-    window.state.size.set(window.Instance.AbsoluteSize);
-  }
-
+  const updateSize = () => window.state.size.set(window.Instance.AbsoluteSize);
   updateSize();
-
-  window.Instance.GetPropertyChangedSignal('AbsolutePosition').Connect(() =>
-    updateSize(),
+  // Position changes on resize, so safe to not add a AbsoluteSize listener
+  window.Instance.GetPropertyChangedSignal('AbsolutePosition').Connect(
+    updateSize,
   );
 
   return window;

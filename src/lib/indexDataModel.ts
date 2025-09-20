@@ -8,17 +8,20 @@ export function toContentId(assetId: string | number) {
   return `rbxassetid://${assetId}`;
 }
 
-export function hasAssetPermission(contentId: string) {
-  const status = ContentProvider.GetAssetFetchStatus(contentId);
-  if (status === Enum.AssetFetchStatus.Failure) return false;
-  return true;
-}
-
 export default function indexDataModel(
   output: Iris.State<Instance[]>,
   count: Iris.State<number>,
+  ignoreZero: boolean,
   finish: () => void,
 ) {
+  const hasAssetPermission = (contentId: string) => {
+    if (ignoreZero && contentId === 'rbxassetid://0') return true;
+
+    const status = ContentProvider.GetAssetFetchStatus(contentId);
+    if (status === Enum.AssetFetchStatus.Failure) return false;
+    return true;
+  };
+
   return task.spawn(() => {
     let counter = 0;
     for (const descendant of game.GetDescendants()) {

@@ -5,6 +5,7 @@ import indexDataModel from 'lib/indexDataModel';
 import { Selection } from 'services';
 
 export default function App() {
+  const ignoreZero = Iris.State<boolean>(true);
   const outputInstancesState = Iris.State<Instance[]>([]);
   const outputIterationCount = Iris.State<number>(0);
   const indexThread = Iris.State<thread | undefined>(undefined);
@@ -22,11 +23,11 @@ export default function App() {
   Iris.SeparatorText(['Control']);
 
   if (!indexThread.get()) {
-    const startButton = Iris.Button(['Start']);
-    if (startButton.clicked()) {
+    if (Iris.Button(['Start']).clicked()) {
       const thread = indexDataModel(
         outputInstancesState,
         outputIterationCount,
+        ignoreZero.get(),
         () => indexThread.set(undefined),
       );
       indexThread.set(thread);
@@ -34,6 +35,11 @@ export default function App() {
       outputInstancesState.set([]);
       outputIterationCount.set(0);
     }
+
+    Iris.Checkbox(['Ignore rbxassetid://0'], { isChecked: ignoreZero });
+
+    Iris.Indent([]);
+    Iris.End();
   }
 
   if (indexThread.get()) {
